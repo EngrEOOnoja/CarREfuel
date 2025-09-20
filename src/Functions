@@ -1,0 +1,88 @@
+//Arrow function
+
+let sum =(firstNumber, secondNumber) => {
+    return firstNumber + secondNumber;
+}
+
+let allNumber = (number)=>{
+    for(let index = 1; index <= number; index++){
+        return index;
+    }
+}
+
+console.log(allNumber(50));
+
+
+
+//Nested Fucntion
+function weOutSide(funds){
+    funds = 1000;
+    function weInside(noFunds){
+        noFunds = 0;
+        console.log(noFunds);
+    }
+    weInside(10);
+    console.log(funds);
+}
+weOutSide();
+
+
+
+function weOutSide(funds){
+    funds = 1000;
+    function weInside(){
+        let noFunds = 0;
+        return noFunds;
+    }
+    let insideResult = weInside(10);
+    return {insideResult, funds};
+}
+console.log(weOutSide());
+
+
+
+// Function as returned object.
+
+function person (name, age, gender, location){
+    return{    
+        getName: name,
+        getAge: age,
+        getGender: gender,
+        getLocation: location
+        }
+}
+
+let emma = person("emma", 14, "male", "lagos");
+
+console.log(emma.getAge);
+console.log(emma.getGender);
+
+
+
+// Function as an Argument
+
+function student(name){
+    return name;
+}
+
+
+//Qodo Geo: Option| Test this function
+function greeting(callbkfn, name){
+    console.log("Welcome to Semicolon Village" + callbkfn(name));
+}
+
+greeting(student, "emma");
+
+
+// 
+function greeting(callfn){
+    callfn()
+    console.log("good afternoon");
+}
+
+function time(){
+    console.log.apply("good morning");
+}
+
+greeting(time);
+

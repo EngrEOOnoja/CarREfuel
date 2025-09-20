@@ -1,0 +1,48 @@
+let Ignition = false;
+let fuellevel = 0;
+let accelerate = 0;
+const MAX_FUEL_CAPACITY = 50;
+const MIN_FUEL_TO_DRIVE = 0;
+
+
+function power(){
+    return Ignition;
+}   
+
+function toggleButton(){
+    Ignition = !Ignition;
+}
+
+function fuelLevel(){
+    return fuellevel;
+}   
+
+function toFuel() {
+    if (Ignition) throw new Error("Cannot refuel while car is running");
+    if (fuellevel >= MAX_FUEL_CAPACITY) throw new Error("Fuel tank is full");
+    fuellevel++;
+    return fuellevel;
+}
+
+function toDrive(){     
+    if (fuellevel <= MIN_FUEL_TO_DRIVE) throw new Error("Out of fuel");
+    if (accelerate === 0) throw new Error("Not moving");
+    if (accelerate > 0 && accelerate < 20){ fuellevel -= 1;
+    if (accelerate >= 40) fuellevel -= 2;
+    if (accelerate >= 60) fuellevel -= 3;
+    if (accelerate > 100) fuellevel -= 4;
+    return fuellevel;
+}
+
+function getaccelerate(){
+    return accelerate;
+}
+
+function toAccelerate(value){
+    if(accelerate > 0 && accelerate < 20) accelerate += value;
+    if(accelerate >= 40) accelerate += value;
+    if(accelerate >= 60) accelerate += value;
+    if(accelerate > 100) accelerate += value;   
+}
+
+module.exports = {power, toggleButton, fuelLevel, toFuel, toDrive, toAccelerate, getaccelerate}; 

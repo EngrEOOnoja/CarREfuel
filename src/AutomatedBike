@@ -1,0 +1,28 @@
+
+const {power, toggleButton, toAccelerate} = require('../src/AutomatedBike');
+
+describe('TEst for my new Lifan AutomatedBike button', ()=>{
+    test('power should be off', () => {
+        expect(power()).toBe(false); // Automated Bike is off
+    });
+
+
+    test('test to check if i can on my bike when off', () => {
+        expect(power()).toBe(false); 
+        toggleButton();
+    });
+
+
+    test('test to check if i can off my bike after it has being turned on', () => {
+        toggleButton();
+        expect(power()).toBe(false);  
+    });
+    
+    
+    test('test to check if my bike accelerate by 1', () => {
+        toggleButton();
+        for(let count = 0; count < 20, count++)
+            
+    
+    });
+});
