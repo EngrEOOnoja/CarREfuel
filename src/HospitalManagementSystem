@@ -1,0 +1,51 @@
+
+class Doctor{
+     name;
+     age;
+     department;
+     availability;
+     phone;
+     address;
+     patients = [];
+
+    constructor(name, age, department, availability, phone, address){
+        this.name = name;
+        this.age = age;
+        this.department = department;
+        this.availability = availability;
+        this.phone = phone;
+        this.address = address;
+    
+    }
+
+}
+
+class Patient{
+    name;
+    age;
+    phone;
+    address;
+    reasonForVisit = [];
+
+    constructor(name, age, phone, address, reasonForVisit){
+        this.name = name;
+        this.age = age;
+        this.phone = phone;
+        this.address = address;
+        this.reasonForVisit = reasonForVisit;
+    }
+
+
+
+}
+}
+
+    function isEmpty(arr = [] ) {
+    return arr.length === 0;
+}
+
+
+module.exports = { Doctor, isEmpty};
+
+
+
